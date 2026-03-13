@@ -1,114 +1,617 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Banawi Muslim Wibowo | Backend Engineer</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Banawi Muslim Wibowo — Backend Engineer specializing in Express.js, MySQL, PostgreSQL, Redis, and REST APIs." />
+  <meta name="keywords" content="backend engineer, express.js, mysql, postgresql, redis, rest api, developer" />
+  <meta name="author" content="Banawi Muslim Wibowo" />
+  <title>Banawi Muslim Wibowo — Backend Engineer</title>
 
-    <div class="cv-container">
+  <!-- Google Fonts: Syne (display) + JetBrains Mono (code feel) + Outfit (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
 
-      <!-- HEADER: Centered identity block -->
-      <header class="cv-header">
-        <div class="header-meta top-meta">
-          <span class="mono">Backend Engineer</span>
-          <span class="divider">·</span>
-          <span class="mono">Surabaya, Indonesia</span>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       CUSTOM CURSOR
+  ══════════════════════════════════════════════ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════════ -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-container">
+      <!-- Logo / Brand -->
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">{</span>
+        <span class="logo-name">BMW</span>
+        <span class="logo-bracket">}</span>
+      </a>
+
+      <!-- Nav Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <!-- Right Controls -->
+      <div class="nav-controls">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+          <span class="theme-icon dark-icon">◑</span>
+          <span class="theme-icon light-icon">○</span>
+        </button>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         HERO SECTION
+    ══════════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <!-- Animated grid background -->
+      <div class="hero-grid" aria-hidden="true"></div>
+      <!-- Glowing orbs -->
+      <div class="orb orb-1" aria-hidden="true"></div>
+      <div class="orb orb-2" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <!-- Status badge -->
+        <div class="status-badge reveal">
+          <span class="status-dot"></span>
+          Currently Interning · Open to Opportunities
         </div>
 
-        <h1 class="name">Banawi Muslim<br /><em>Wibowo</em></h1>
+        <!-- Name -->
+        <h1 class="hero-name reveal reveal-delay-1">
+          Banawi<br />
+          <span class="name-accent">Muslim</span> Wibowo
+        </h1>
 
-        <div class="header-meta bottom-meta">
-          <a href="mailto:masmuslim20151231@gmail.com" class="meta-link">masmuslim20151231@gmail.com</a>
-          <span class="divider">·</span>
-          <a href="https://www.instagram.com/banawimiaw_" class="meta-link">Instagram</a>
-          <span class="divider">·</span>
-          <a href="https://github.com/banawi23005" class="meta-link">GitHub</a>
+        <!-- Typing tagline -->
+        <div class="hero-tagline reveal reveal-delay-2">
+          <span class="tagline-prefix">// </span>
+          <span class="typed-text" id="typedText"></span>
+          <span class="cursor-blink">|</span>
         </div>
-      </header>
 
-      <main class="cv-main">
+        <!-- Sub desc -->
+        <p class="hero-desc reveal reveal-delay-3">
+          Backend Engineer crafting high-performance APIs and scalable server architectures.<br />
+          Passionate about clean code, fast data, and systems that never sleep.
+        </p>
 
-        <!-- EXPERIENCE -->
-        <section class="cv-section">
-          <h2 class="section-title"><span>Experience</span></h2>
+        <!-- CTAs -->
+        <div class="hero-cta reveal reveal-delay-4">
+          <a href="#projects" class="btn btn-primary">
+            View My Work
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            Let's Talk
+          </a>
+        </div>
 
-          <div class="experience-item">
-            <div class="item-header">
-              <div>
-                <h3 class="item-title">Junior Engineer Intern</h3>
-                <p class="item-org">PT. Radnet Digital Indonesia</p>
+        <!-- Tech stack quick pills -->
+        <div class="hero-stack reveal reveal-delay-4">
+          <span class="stack-label">Stack:</span>
+          <span class="stack-pill">Node.js</span>
+          <span class="stack-pill">Express.js</span>
+          <span class="stack-pill">MySQL</span>
+          <span class="stack-pill">PostgreSQL</span>
+          <span class="stack-pill">REST API</span>
+          <span class="stack-pill">Git</span>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>scroll</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         ABOUT SECTION
+    ══════════════════════════════════════════════ -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">01 / About</span>
+          <h2 class="section-title">The Engineer<br /><span class="accent">Behind the Code</span></h2>
+        </div>
+
+        <div class="about-grid">
+          <!-- Avatar / visual -->
+          <div class="about-visual reveal">
+            <div class="avatar-frame">
+              <div class="avatar-placeholder">
+                <span class="avatar-initials">BMW</span>
+                <!-- Replace with: <img src="your-photo.jpg" alt="Banawi Muslim Wibowo" /> -->
               </div>
-              <span class="item-date">4 Months</span>
-            </div>
-            <p class="item-desc">
-              Gained hands-on experience in backend engineering within a professional digital
-              infrastructure environment, contributing to real-world engineering tasks and workflows.
-            </p>
-          </div>
-
-          <div class="experience-item">
-            <div class="item-header">
-              <div>
-                <h3 class="item-title">Web Development & UI/UX Bootcamp</h3>
-                <p class="item-org">Celerates</p>
+              <div class="avatar-ring"></div>
+              <!-- Floating code snippet decoration -->
+              <div class="code-snippet">
+                <span class="code-keyword">const</span> engineer = {<br />
+                &nbsp;&nbsp;name: <span class="code-string">"Banawi"</span>,<br />
+                &nbsp;&nbsp;focus: <span class="code-string">"Backend"</span>,<br />
+                &nbsp;&nbsp;coffee: <span class="code-bool">true</span><br />
+                };
               </div>
-              <span class="item-date">4 Months</span>
             </div>
-            <p class="item-desc">
-              Completed an intensive bootcamp covering full-stack web development and UI/UX design
-              principles, building practical skills in modern web technologies and user-centered design..
+          </div>
+
+          <!-- Text content -->
+          <div class="about-text">
+            <p class="about-lead reveal">
+              Hey! I'm <strong>Banawi</strong> — a 6th semester Informatics Engineering student and backend engineering intern who loves building the invisible layer that makes apps tick.
             </p>
-          </div>
-        </section>
+            <p class="about-body reveal">
+              I specialize in designing and developing <strong>RESTful APIs</strong> and optimizing database performance with <strong>MySQL & PostgreSQL</strong>. My go-to stack is <strong>Node.js + Express.js</strong>, and I bring a solid understanding of <strong>HTML, CSS & JavaScript</strong> to bridge the gap between front and back.
+            </p>
+            <p class="about-body reveal">
+              I'm currently <strong>3 months into a 4-month internship</strong> at <strong>PT. Radnet Digital Indonesia</strong>, working on real production systems. I also leveled up through an intensive full-stack bootcamp at <strong>Celerates</strong> and communicate confidently in <strong>Advanced English</strong>.
+            </p>
 
-        <!-- PROJECTS — hidden, no project data provided -->
-
-        <!-- SKILLS + EDUCATION -->>
-        <section class="cv-section inline-sections">
-          <div class="sub-section">
-            <h2 class="section-title"><span>Skills</span></h2>
-            <ul class="skills-list">
-              <li>Node.js & Express.js</li>
-              <li>MySQL & PostgreSQL</li>
-              <li>REST API Design</li>
-              <li>HTML, CSS & JavaScript</li>
-              <li>Git & GitHub</li>
-              <li>Advanced English</li>
-            </ul>
+            <!-- Stats row -->
+            <div class="about-stats reveal">
+              <div class="stat-item">
+                <span class="stat-number" data-target="6">0</span><span class="stat-unit"></span>
+                <span class="stat-label">Sem. Active</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" data-target="3">0</span><span class="stat-unit">/4</span>
+                <span class="stat-label">Intern Months</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number" data-target="6">0</span><span class="stat-unit">+</span>
+                <span class="stat-label">Core Skills</span>
+              </div>
+            </div>
           </div>
-          <div class="sub-section">
-            <h2 class="section-title"><span>Education</span></h2>
-            <div class="education-item">
-              <h3 class="item-title">S1 Teknik Informatika</h3>
-              <p class="item-org">Universitas Negeri Surabaya</p>
-              <p class="item-desc" style="margin-top:0.5rem;">
-                Undergraduate program in Informatics Engineering, currently in progress.
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         EXPERIENCE SECTION
+    ══════════════════════════════════════════════ -->
+    <section class="experience section" id="experience">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">02 / Experience</span>
+          <h2 class="section-title">Where I've<br /><span class="accent">Worked & Learned</span></h2>
+        </div>
+
+        <div class="experience-timeline">
+
+          <!-- Experience 1 -->
+          <div class="exp-item reveal">
+            <div class="exp-dot"></div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div class="exp-title-group">
+                  <h3 class="exp-title">Junior Engineer Intern</h3>
+                  <p class="exp-org">PT. Radnet Digital Indonesia</p>
+                </div>
+                <div class="exp-meta">
+                  <span class="exp-badge exp-badge-active">🟢 Ongoing</span>
+                  <span class="exp-duration">3 of 4 Months</span>
+                </div>
+              </div>
+              <p class="exp-desc">
+                Currently gaining hands-on experience in backend engineering within a professional digital
+                infrastructure environment. Contributing to real-world engineering tasks and production
+                workflows alongside senior engineers — with 1 month still to go.
               </p>
+              <div class="exp-tags">
+                <span class="tag">Backend Engineering</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">REST API</span>
+                <span class="tag">Production Systems</span>
+              </div>
             </div>
           </div>
-        </section>
 
-      </main>
+          <!-- Experience 2 -->
+          <div class="exp-item reveal">
+            <div class="exp-dot"></div>
+            <div class="exp-card">
+              <div class="exp-header">
+                <div class="exp-title-group">
+                  <h3 class="exp-title">Web Development & UI/UX Bootcamp</h3>
+                  <p class="exp-org">Celerates</p>
+                </div>
+                <div class="exp-meta">
+                  <span class="exp-badge">Bootcamp</span>
+                  <span class="exp-duration">4 Months</span>
+                </div>
+              </div>
+              <p class="exp-desc">
+                Completed an intensive bootcamp covering full-stack web development and UI/UX design
+                principles. Built practical skills in modern web technologies and user-centered design,
+                shipping multiple real-world projects under tight deadlines.
+              </p>
+              <div class="exp-tags">
+                <span class="tag">Full-Stack</span>
+                <span class="tag">UI/UX Design</span>
+                <span class="tag">HTML/CSS/JS</span>
+                <span class="tag">Express.js</span>
+              </div>
+            </div>
+          </div>
 
-      <footer class="cv-footer">
-        <p>&copy; 2026 Banawi Muslim Wibowo &mdash; Built with HTML, CSS &amp; JS</p>
-      </footer>
+          <!-- Education -->
+          <div class="exp-item reveal">
+            <div class="exp-dot exp-dot-edu"></div>
+            <div class="exp-card exp-card-edu">
+              <div class="exp-header">
+                <div class="exp-title-group">
+                  <h3 class="exp-title">S1 Teknik Informatika</h3>
+                  <p class="exp-org">Universitas Negeri Surabaya</p>
+                </div>
+                <div class="exp-meta">
+                  <span class="exp-badge exp-badge-edu">Education</span>
+                  <span class="exp-duration">Semester 6</span>
+                </div>
+              </div>
+              <p class="exp-desc">
+                Currently in semester 6 of the Informatics Engineering undergraduate program, building a strong foundation in
+                computer science, software engineering, algorithms, and systems design.
+              </p>
+              <div class="exp-tags">
+                <span class="tag">Computer Science</span>
+                <span class="tag">Software Engineering</span>
+                <span class="tag">Algorithms</span>
+              </div>
+            </div>
+          </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SKILLS SECTION
+    ══════════════════════════════════════════════ -->
+    <section class="skills section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">03 / Skills</span>
+          <h2 class="section-title">Tech I Work<br /><span class="accent">With Daily</span></h2>
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- Skill Card: Node.js & Express.js -->
+          <div class="skill-card reveal">
+            <div class="skill-card-inner">
+              <div class="skill-icon">⚡</div>
+              <h3 class="skill-name">Node.js & Express.js</h3>
+              <p class="skill-desc">Building fast, scalable server-side applications and REST APIs with clean middleware architecture and async patterns.</p>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="88" style="--level: 88%"></div>
+              </div>
+              <span class="skill-level">Advanced</span>
+            </div>
+          </div>
+
+          <!-- Skill Card: MySQL -->
+          <div class="skill-card reveal">
+            <div class="skill-card-inner">
+              <div class="skill-icon">🐬</div>
+              <h3 class="skill-name">MySQL</h3>
+              <p class="skill-desc">Schema design, query optimization, indexing strategies, and relational data modeling for production systems.</p>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="85" style="--level: 85%"></div>
+              </div>
+              <span class="skill-level">Advanced</span>
+            </div>
+          </div>
+
+          <!-- Skill Card: PostgreSQL -->
+          <div class="skill-card reveal">
+            <div class="skill-card-inner">
+              <div class="skill-icon">🐘</div>
+              <h3 class="skill-name">PostgreSQL</h3>
+              <p class="skill-desc">Advanced SQL, JSONB, window functions, and high-performance transactional database systems.</p>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="80" style="--level: 80%"></div>
+              </div>
+              <span class="skill-level">Advanced</span>
+            </div>
+          </div>
+
+          <!-- Skill Card: REST API -->
+          <div class="skill-card reveal">
+            <div class="skill-card-inner">
+              <div class="skill-icon">🔗</div>
+              <h3 class="skill-name">REST API Design</h3>
+              <p class="skill-desc">Designing scalable, versioned, and well-documented APIs following REST best practices and clean architecture.</p>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="90" style="--level: 90%"></div>
+              </div>
+              <span class="skill-level">Expert</span>
+            </div>
+          </div>
+
+          <!-- Skill Card: HTML CSS JS -->
+          <div class="skill-card reveal">
+            <div class="skill-card-inner">
+              <div class="skill-icon">🎨</div>
+              <h3 class="skill-name">HTML, CSS & JavaScript</h3>
+              <p class="skill-desc">Solid frontend fundamentals — semantic HTML, responsive CSS, and vanilla JS for interactive web experiences.</p>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="82" style="--level: 82%"></div>
+              </div>
+              <span class="skill-level">Advanced</span>
+            </div>
+          </div>
+
+          <!-- Skill Card: Git -->
+          <div class="skill-card reveal">
+            <div class="skill-card-inner">
+              <div class="skill-icon">🌿</div>
+              <h3 class="skill-name">Git & GitHub</h3>
+              <p class="skill-desc">Version control, branching strategies, pull requests, and collaborative development workflows.</p>
+              <div class="skill-bar">
+                <div class="skill-fill" data-level="85" style="--level: 85%"></div>
+              </div>
+              <span class="skill-level">Advanced</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PROJECTS SECTION
+    ══════════════════════════════════════════════ -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">04 / Projects</span>
+          <h2 class="section-title">Things I've<br /><span class="accent">Shipped</span></h2>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project 1 -->
+          <article class="project-card reveal" data-index="01">
+            <div class="project-card-inner">
+              <!-- Top bar -->
+              <div class="project-top">
+                <span class="project-index">01</span>
+                <div class="project-links">
+                  <a href="#" class="project-link" aria-label="GitHub" title="GitHub">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                  </a>
+                  <a href="#" class="project-link" aria-label="Live Demo" title="Live Demo">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Project image area -->
+              <div class="project-thumbnail">
+                <div class="thumbnail-placeholder">
+                  <span class="thumbnail-icon">🛒</span>
+                </div>
+                <div class="project-hover-overlay">
+                  <span>View Project →</span>
+                </div>
+              </div>
+
+              <!-- Project info -->
+              <div class="project-info">
+                <h3 class="project-title">E-Commerce API Platform</h3>
+                <p class="project-desc">
+                  A high-performance RESTful API for e-commerce platforms supporting 10k+ concurrent requests. Features JWT auth, Redis caching, and PostgreSQL for order management.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Express.js</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">Redis</span>
+                  <span class="tag">JWT</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card reveal" data-index="02">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <span class="project-index">02</span>
+                <div class="project-links">
+                  <a href="#" class="project-link" aria-label="GitHub" title="GitHub">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                  </a>
+                  <a href="#" class="project-link" aria-label="Live Demo" title="Live Demo">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-thumbnail">
+                <div class="thumbnail-placeholder">
+                  <span class="thumbnail-icon">📊</span>
+                </div>
+                <div class="project-hover-overlay">
+                  <span>View Project →</span>
+                </div>
+              </div>
+
+              <div class="project-info">
+                <h3 class="project-title">Real-Time Analytics Dashboard</h3>
+                <p class="project-desc">
+                  Backend service aggregating user analytics with real-time WebSocket updates. Uses MySQL for event storage and Redis pub/sub for live data streaming.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Express.js</span>
+                  <span class="tag">MySQL</span>
+                  <span class="tag">Redis Pub/Sub</span>
+                  <span class="tag">WebSocket</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card reveal" data-index="03">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <span class="project-index">03</span>
+                <div class="project-links">
+                  <a href="#" class="project-link" aria-label="GitHub" title="GitHub">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                  </a>
+                  <a href="#" class="project-link" aria-label="Live Demo" title="Live Demo">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-thumbnail">
+                <div class="thumbnail-placeholder">
+                  <span class="thumbnail-icon">🔐</span>
+                </div>
+                <div class="project-hover-overlay">
+                  <span>View Project →</span>
+                </div>
+              </div>
+
+              <div class="project-info">
+                <h3 class="project-title">Auth & RBAC Microservice</h3>
+                <p class="project-desc">
+                  Standalone authentication microservice with role-based access control, token refresh logic, and rate limiting. Integrates with any backend via REST.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Express.js</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">Redis</span>
+                  <span class="tag">RBAC</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         CONTACT SECTION
+    ══════════════════════════════════════════════ -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">05 / Contact</span>
+          <h2 class="section-title">Let's Build<br /><span class="accent">Something</span></h2>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: info -->
+          <div class="contact-info reveal">
+            <p class="contact-desc">
+              Whether it's a backend challenge, a new project, or just a conversation about tech — my inbox is always open.
+            </p>
+
+            <div class="contact-links">
+              <a href="mailto:masmuslim20151231@gmail.com" class="contact-link-item">
+                <span class="contact-link-icon">✉</span>
+                <span>masmuslim20151231@gmail.com</span>
+              </a>
+              <!-- Add more socials here as needed -->
+              <a href="https://github.com/" target="_blank" rel="noopener" class="contact-link-item">
+                <span class="contact-link-icon">⌥</span>
+                <span>github.com/banawi</span>
+              </a>
+              <a href="https://linkedin.com/" target="_blank" rel="noopener" class="contact-link-item">
+                <span class="contact-link-icon">in</span>
+                <span>linkedin.com/in/banawi</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="contact-form-wrap reveal">
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
+                  <span class="form-error" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+                  <span class="form-error" id="emailError"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                <span class="form-error" id="messageError"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-arrow">→</span>
+              </button>
+
+              <!-- Success message -->
+              <div class="form-success" id="formSuccess">
+                <span>✓</span> Message sent! I'll get back to you soon.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">
+          © <span id="footerYear"></span> Banawi Muslim Wibowo
+          <span class="footer-sep">·</span>
+          Designed & built with ♥
+        </p>
+        <p class="footer-tagline">
+          <span class="code-comment">// Always learning, always building</span>
+        </p>
+      </div>
     </div>
+  </footer>
 
-    <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
-      Dark Mode
-    </button>
-
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
