@@ -1,440 +1,600 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Banawi Muslim Wibowo — Backend Engineer spesialis Express.js, MySQL, PostgreSQL, Redis, dan REST API." />
-  <meta name="keywords" content="backend engineer, express.js, mysql, postgresql, redis, rest api, developer" />
-  <meta name="author" content="Banawi Muslim Wibowo" />
-  <title>Banawi Muslim Wibowo — Backend Engineer</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Banawi Muslim Wibowo — Backend Engineer spesialis Express.js, MySQL, PostgreSQL, Redis, dan REST API."
+    />
+    <meta
+      name="keywords"
+      content="backend engineer, express.js, mysql, postgresql, redis, rest api, developer"
+    />
+    <meta name="author" content="Banawi Muslim Wibowo" />
+    <title>Banawi Muslim Wibowo — Backend Engineer</title>
 
-  <!-- Google Fonts: Russo One (display) + JetBrains Mono (code) + Outfit (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+    <!-- Google Fonts: Russo One (display) + JetBrains Mono (code) + Outfit (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <!-- ═══════════════════════════════════════════
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════
        CUSTOM CURSOR
   ══════════════════════════════════════════════ -->
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- ═══════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════
        NAVBAR
   ══════════════════════════════════════════════ -->
-  <header class="navbar" id="navbar">
-    <nav class="nav-container">
-      <!-- Logo / Brand -->
-      <a href="#hero" class="nav-logo">
-        <span class="logo-bracket">{</span>
-        <span class="logo-name">BMW</span>
-        <span class="logo-bracket">}</span>
-      </a>
+    <header class="navbar" id="navbar">
+      <nav class="nav-container">
+        <!-- Logo / Brand -->
+        <a href="#hero" class="nav-logo">
+          <span class="logo-bracket">{</span>
+          <span class="logo-name">BMW</span>
+          <span class="logo-bracket">}</span>
+        </a>
 
-      <!-- Nav Links -->
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about" class="nav-link" data-section="about">Tentang</a></li>
-        <li><a href="#experience" class="nav-link" data-section="experience">Pengalaman</a></li>
-        <li><a href="#skills" class="nav-link" data-section="skills">Keahlian</a></li>
-        <li><a href="#contact" class="nav-link" data-section="contact">Kontak</a></li>
-      </ul>
+        <!-- Nav Links -->
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="#about" class="nav-link" data-section="about">Tentang</a>
+          </li>
+          <li>
+            <a href="#experience" class="nav-link" data-section="experience"
+              >Pengalaman</a
+            >
+          </li>
+          <li>
+            <a href="#skills" class="nav-link" data-section="skills"
+              >Keahlian</a
+            >
+          </li>
+          <li>
+            <a href="#contact" class="nav-link" data-section="contact"
+              >Kontak</a
+            >
+          </li>
+        </ul>
 
-      <!-- Right Controls -->
-      <div class="nav-controls">
-        <!-- Theme Toggle -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Ganti mode terang/gelap">
-          <span class="theme-icon dark-icon">◑</span>
-          <span class="theme-icon light-icon">○</span>
-        </button>
+        <!-- Right Controls -->
+        <div class="nav-controls">
+          <!-- Theme Toggle -->
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Ganti mode terang/gelap"
+          >
+            <span class="theme-icon dark-icon">◑</span>
+            <span class="theme-icon light-icon">○</span>
+          </button>
 
-        <!-- Hamburger -->
-        <button class="hamburger" id="hamburger" aria-label="Buka menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </nav>
-  </header>
+          <!-- Hamburger -->
+          <button class="hamburger" id="hamburger" aria-label="Buka menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
 
-  <main>
-
-    <!-- ═══════════════════════════════════════════
+    <main>
+      <!-- ═══════════════════════════════════════════
          HERO SECTION
     ══════════════════════════════════════════════ -->
-    <section class="hero" id="hero">
-      <!-- Animated grid background -->
-      <div class="hero-grid" aria-hidden="true"></div>
-      <!-- Glowing orbs -->
-      <div class="orb orb-1" aria-hidden="true"></div>
-      <div class="orb orb-2" aria-hidden="true"></div>
+      <section class="hero" id="hero">
+        <!-- Animated grid background -->
+        <div class="hero-grid" aria-hidden="true"></div>
+        <!-- Glowing orbs -->
+        <div class="orb orb-1" aria-hidden="true"></div>
+        <div class="orb orb-2" aria-hidden="true"></div>
 
-      <div class="hero-content">
-        <!-- Status badge -->
-        <div class="status-badge reveal">
-          <span class="status-dot"></span>
-          Sedang Magang · Terbuka untuk Peluang
+        <div class="hero-content">
+          <!-- Status badge -->
+          <div class="status-badge reveal">
+            <span class="status-dot"></span>
+            Sedang Magang · Terbuka untuk Peluang
+          </div>
+
+          <!-- Name -->
+          <h1 class="hero-name reveal reveal-delay-1">
+            Banawi<br />
+            <span class="name-accent">Muslim</span> Wibowo
+          </h1>
+
+          <!-- Typing tagline -->
+          <div class="hero-tagline reveal reveal-delay-2">
+            <span class="tagline-prefix">// </span>
+            <span class="typed-text" id="typedText"></span>
+            <span class="cursor-blink">|</span>
+          </div>
+
+          <!-- Sub desc -->
+          <p class="hero-desc reveal reveal-delay-3">
+            Network enthusiast yang passionate di jaringan komputer,
+            infrastruktur, dan pengembangan sistem.<br />
+            Dari konfigurasi router hingga membangun API — saya suka memahami
+            cara kerja segala sesuatu dari bawah.
+          </p>
+
+          <!-- CTAs -->
+          <div class="hero-cta reveal reveal-delay-4">
+            <a href="#about" class="btn btn-primary">
+              Kenali Saya
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="#contact" class="btn btn-ghost"> Mari Ngobrol </a>
+          </div>
+
+          <!-- Tech stack quick pills -->
+          <div class="hero-stack reveal reveal-delay-4">
+            <span class="stack-label">Stack:</span>
+            <span class="stack-pill">Linux</span>
+            <span class="stack-pill">Cisco</span>
+            <span class="stack-pill">Mikrotik</span>
+            <span class="stack-pill">Node.js</span>
+            <span class="stack-pill">Git</span>
+          </div>
         </div>
 
-        <!-- Name -->
-        <h1 class="hero-name reveal reveal-delay-1">
-          Banawi<br />
-          <span class="name-accent">Muslim</span> Wibowo
-        </h1>
-
-        <!-- Typing tagline -->
-        <div class="hero-tagline reveal reveal-delay-2">
-          <span class="tagline-prefix">// </span>
-          <span class="typed-text" id="typedText"></span>
-          <span class="cursor-blink">|</span>
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator" aria-hidden="true">
+          <div class="scroll-line"></div>
+          <span>gulir</span>
         </div>
+      </section>
 
-        <!-- Sub desc -->
-        <p class="hero-desc reveal reveal-delay-3">
-          Network enthusiast yang passionate di jaringan komputer, infrastruktur, dan pengembangan sistem.<br />
-          Dari konfigurasi router hingga membangun API — saya suka memahami cara kerja segala sesuatu dari bawah.
-        </p>
-
-        <!-- CTAs -->
-        <div class="hero-cta reveal reveal-delay-4">
-          <a href="#about" class="btn btn-primary">
-            Kenali Saya
-            <span class="btn-arrow">→</span>
-          </a>
-          <a href="#contact" class="btn btn-ghost">
-            Mari Ngobrol
-          </a>
-        </div>
-
-        <!-- Tech stack quick pills -->
-        <div class="hero-stack reveal reveal-delay-4">
-          <span class="stack-label">Stack:</span>
-          <span class="stack-pill">Linux</span>
-          <span class="stack-pill">Cisco</span>
-          <span class="stack-pill">Mikrotik</span>
-          <span class="stack-pill">GPON</span>
-          <span class="stack-pill">Node.js</span>
-          <span class="stack-pill">Git</span>
-        </div>
-      </div>
-
-      <!-- Scroll indicator -->
-      <div class="scroll-indicator" aria-hidden="true">
-        <div class="scroll-line"></div>
-        <span>gulir</span>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
+      <!-- ═══════════════════════════════════════════
          ABOUT SECTION
     ══════════════════════════════════════════════ -->
-    <section class="about section" id="about">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-label">01 / Tentang</span>
-          <h2 class="section-title">Engineer di<br /><span class="accent">Balik Kode</span></h2>
-        </div>
+      <section class="about section" id="about">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-label">01 / Tentang</span>
+            <h2 class="section-title">
+              Engineer di<br /><span class="accent">Balik Kode</span>
+            </h2>
+          </div>
 
-        <div class="about-grid">
-          <!-- Avatar / visual -->
-          <div class="about-visual reveal">
-            <div class="avatar-frame">
-              <div class="avatar-placeholder">
-                <span class="avatar-initials">BMW</span>
-                <!-- Ganti dengan: <img src="foto-kamu.jpg" alt="Banawi Muslim Wibowo" /> -->
+          <div class="about-grid">
+            <!-- Avatar / visual -->
+            <div class="about-visual reveal">
+              <div class="avatar-frame">
+                <div class="avatar-placeholder">
+                  <img
+                    src="image/fotopas.jpg"
+                    alt="Foto profil Banawi Muslim Wibowo"
+                  />
+                </div>
+                <div class="avatar-ring"></div>
+                <!-- Floating code snippet decoration -->
+                <div class="code-snippet">
+                  <span class="code-keyword">const</span> engineer = {<br />
+                  &nbsp;&nbsp;nama:
+                  <span class="code-string">"Banawi"</span>,<br />
+                  &nbsp;&nbsp;fokus:
+                  <span class="code-string">"Network"</span>,<br />
+                  &nbsp;&nbsp;kopi: <span class="code-bool">true</span><br />
+                  };
+                </div>
               </div>
-              <div class="avatar-ring"></div>
-              <!-- Floating code snippet decoration -->
-              <div class="code-snippet">
-                <span class="code-keyword">const</span> engineer = {<br />
-                &nbsp;&nbsp;nama: <span class="code-string">"Banawi"</span>,<br />
-                &nbsp;&nbsp;fokus: <span class="code-string">"Network"</span>,<br />
-                &nbsp;&nbsp;kopi: <span class="code-bool">true</span><br />
-                };
+            </div>
+
+            <!-- Text content -->
+            <div class="about-text">
+              <p class="about-lead reveal">
+                Hei! Saya <strong>Banawi</strong> — mahasiswa Teknik Informatika
+                semester 6 yang passionate di dunia jaringan komputer dan
+                infrastruktur digital.
+              </p>
+              <p class="about-body reveal">
+                Saya memiliki keahlian di bidang administrasi sistem
+                <strong>Linux</strong> dan konfigurasi perangkat
+                <strong>Cisco & Mikrotik</strong>. Di sisi pengembangan, saya
+                juga bisa membangun <strong>REST API</strong> dengan
+                <strong>Node.js + Express.js</strong> dan mengelola database
+                <strong>MySQL & PostgreSQL</strong>.
+              </p>
+              <p class="about-body reveal">
+                Saat ini saya
+                <strong>sudah 3 bulan dari total 4 bulan magang</strong> di
+                <strong>PT. Radnet Digital Indonesia</strong>, fokus pada
+                jaringan dan infrastruktur — termasuk terjun langsung ke
+                lapangan mengecek perangkat GPON di hotel. Saya juga alumni
+                bootcamp full-stack di <strong>Celerates</strong> dan
+                berkomunikasi lancar dalam
+                <strong>Bahasa Inggris</strong>.
+              </p>
+
+              <!-- Stats row -->
+              <div class="about-stats reveal">
+                <div class="stat-item">
+                  <span class="stat-number" data-target="6">0</span
+                  ><span class="stat-unit"></span>
+                  <span class="stat-label">Sem. Aktif</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number" data-target="3">0</span
+                  ><span class="stat-unit">/4</span>
+                  <span class="stat-label">Bulan Magang</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number" data-target="6">0</span
+                  ><span class="stat-label">Keahlian Inti</span>
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- Text content -->
-          <div class="about-text">
-            <p class="about-lead reveal">
-              Hei! Saya <strong>Banawi</strong> — mahasiswa Teknik Informatika semester 6 yang passionate di dunia jaringan komputer dan infrastruktur digital.
-            </p>
-            <p class="about-body reveal">
-              Saya memiliki keahlian di bidang administrasi sistem <strong>Linux</strong>, konfigurasi perangkat <strong>Cisco & Mikrotik</strong>, serta teknologi fiber optik <strong>GPON</strong>. Di sisi pengembangan, saya juga solid dalam membangun <strong>REST API</strong> dengan <strong>Node.js + Express.js</strong> dan mengelola database <strong>MySQL & PostgreSQL</strong>.
-            </p>
-            <p class="about-body reveal">
-              Saat ini saya <strong>sudah 3 bulan dari total 4 bulan magang</strong> di <strong>PT. Radnet Digital Indonesia</strong>, fokus pada jaringan dan infrastruktur — termasuk terjun langsung ke lapangan mengecek perangkat GPON di hotel. Saya juga alumni bootcamp full-stack di <strong>Celerates</strong> dan berkomunikasi lancar dalam <strong>Bahasa Inggris tingkat lanjut</strong>.
-            </p>
-
-            <!-- Stats row -->
-            <div class="about-stats reveal">
-              <div class="stat-item">
-                <span class="stat-number" data-target="6">0</span><span class="stat-unit"></span>
-                <span class="stat-label">Sem. Aktif</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number" data-target="3">0</span><span class="stat-unit">/4</span>
-                <span class="stat-label">Bulan Magang</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number" data-target="6">0</span><span class="stat-unit">+</span>
-                <span class="stat-label">Keahlian Inti</span>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ═══════════════════════════════════════════
+      <!-- ═══════════════════════════════════════════
          EXPERIENCE SECTION
     ══════════════════════════════════════════════ -->
-    <section class="experience section" id="experience">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-label">02 / Pengalaman</span>
-          <h2 class="section-title">Tempat Saya<br /><span class="accent">Bekerja & Belajar</span></h2>
+      <section class="experience section" id="experience">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-label">02 / Pengalaman</span>
+            <h2 class="section-title">
+              Tempat Saya<br /><span class="accent">Belajar</span>
+            </h2>
+          </div>
+
+          <div class="experience-timeline">
+            <!-- Experience 1 -->
+            <div class="exp-item reveal">
+              <div class="exp-dot"></div>
+              <div class="exp-card">
+                <div class="exp-header">
+                  <div class="exp-title-group">
+                    <h3 class="exp-title">Intern Junior Network Engineer</h3>
+                    <p class="exp-org">PT. Radnet Digital Indonesia</p>
+                  </div>
+                  <div class="exp-meta">
+                    <span class="exp-badge exp-badge-active"
+                      >🟢 Berlangsung</span
+                    >
+                    <span class="exp-duration">Januari-April 2026</span>
+                  </div>
+                </div>
+                <p class="exp-desc">
+                  Magang di bidang jaringan dan infrastruktur dengan fokus pada
+                  administrasi sistem Linux, konfigurasi perangkat Cisco dan
+                  Mikrotik, serta teknologi jaringan fiber optik. Terjun
+                  langsung ke lapangan untuk pengecekan dan pemeliharaan
+                  perangkat GPON di instalasi hotel, mendapatkan pengalaman
+                  nyata dalam troubleshooting jaringan skala enterprise.
+                </p>
+                <div class="exp-tags">
+                  <span class="tag">Linux & SysAdmin</span>
+                  <span class="tag">Cisco</span>
+                  <span class="tag">Mikrotik</span>
+                  <span class="tag">GPON / Fiber Optik</span>
+                  <span class="tag">Kerja Lapangan</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Experience 2 -->
+            <div class="exp-item reveal">
+              <div class="exp-dot"></div>
+              <div class="exp-card">
+                <div class="exp-header">
+                  <div class="exp-title-group">
+                    <h3 class="exp-title">Bootcamp Web Development & UI/UX</h3>
+                    <p class="exp-org">Celerates</p>
+                  </div>
+                  <div class="exp-meta">
+                    <span class="exp-badge">Bootcamp</span>
+                    <span class="exp-duration">September-Desember 2025</span>
+                  </div>
+                </div>
+                <p class="exp-desc">
+                  Menyelesaikan bootcamp intensif yang mencakup pengembangan web
+                  full-stack dan prinsip desain UI/UX. Membangun keterampilan
+                  praktis dalam teknologi web modern dan desain berpusat pada
+                  pengguna, mengerjakan beberapa proyek nyata dalam tenggat
+                  waktu ketat.
+                </p>
+                <div class="exp-tags">
+                  <span class="tag">Full-Stack</span>
+                  <span class="tag">Desain UI/UX</span>
+                  <span class="tag">HTML/CSS/JS</span>
+                  <span class="tag">Express.js</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Education -->
+            <div class="exp-item reveal">
+              <div class="exp-dot exp-dot-edu"></div>
+              <div class="exp-card exp-card-edu">
+                <div class="exp-header">
+                  <div class="exp-title-group">
+                    <h3 class="exp-title">S1 Teknik Informatika</h3>
+                    <p class="exp-org">Universitas Negeri Surabaya</p>
+                  </div>
+                  <div class="exp-meta">
+                    <span class="exp-badge exp-badge-edu">Pendidikan</span>
+                    <span class="exp-duration">2023-sekarang</span>
+                  </div>
+                </div>
+                <p class="exp-desc">
+                  Saat ini berada di semester 6 program sarjana Teknik
+                  Informatika, membangun fondasi kuat dalam ilmu komputer,
+                  rekayasa perangkat lunak, algoritma, dan desain sistem.
+                </p>
+                <div class="exp-tags">
+                  <span class="tag">Ilmu Komputer</span>
+                  <span class="tag">Rekayasa Perangkat Lunak</span>
+                  <span class="tag">Algoritma</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="experience-timeline">
-
-          <!-- Experience 1 -->
-          <div class="exp-item reveal">
-            <div class="exp-dot"></div>
-            <div class="exp-card">
-              <div class="exp-header">
-                <div class="exp-title-group">
-                  <h3 class="exp-title">Intern Junior Network Engineer</h3>
-                  <p class="exp-org">PT. Radnet Digital Indonesia</p>
-                </div>
-                <div class="exp-meta">
-                  <span class="exp-badge exp-badge-active">🟢 Berlangsung</span>
-                  <span class="exp-duration">3 dari 4 Bulan</span>
-                </div>
-              </div>
-              <p class="exp-desc">
-                Magang di bidang jaringan dan infrastruktur dengan fokus pada administrasi sistem Linux, konfigurasi perangkat Cisco dan Mikrotik, serta teknologi jaringan fiber optik. Terjun langsung ke lapangan untuk pengecekan dan pemeliharaan perangkat GPON di instalasi hotel, mendapatkan pengalaman nyata dalam troubleshooting jaringan skala enterprise.
-              </p>
-              <div class="exp-tags">
-                <span class="tag">Linux & SysAdmin</span>
-                <span class="tag">Cisco</span>
-                <span class="tag">Mikrotik</span>
-                <span class="tag">GPON / Fiber Optik</span>
-                <span class="tag">Kerja Lapangan</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Experience 2 -->
-          <div class="exp-item reveal">
-            <div class="exp-dot"></div>
-            <div class="exp-card">
-              <div class="exp-header">
-                <div class="exp-title-group">
-                  <h3 class="exp-title">Bootcamp Web Development & UI/UX</h3>
-                  <p class="exp-org">Celerates</p>
-                </div>
-                <div class="exp-meta">
-                  <span class="exp-badge">Bootcamp</span>
-                  <span class="exp-duration">4 Bulan</span>
-                </div>
-              </div>
-              <p class="exp-desc">
-                Menyelesaikan bootcamp intensif yang mencakup pengembangan web full-stack dan prinsip desain UI/UX. Membangun keterampilan praktis dalam teknologi web modern dan desain berpusat pada pengguna, mengerjakan beberapa proyek nyata dalam tenggat waktu ketat.
-              </p>
-              <div class="exp-tags">
-                <span class="tag">Full-Stack</span>
-                <span class="tag">Desain UI/UX</span>
-                <span class="tag">HTML/CSS/JS</span>
-                <span class="tag">Express.js</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Education -->
-          <div class="exp-item reveal">
-            <div class="exp-dot exp-dot-edu"></div>
-            <div class="exp-card exp-card-edu">
-              <div class="exp-header">
-                <div class="exp-title-group">
-                  <h3 class="exp-title">S1 Teknik Informatika</h3>
-                  <p class="exp-org">Universitas Negeri Surabaya</p>
-                </div>
-                <div class="exp-meta">
-                  <span class="exp-badge exp-badge-edu">Pendidikan</span>
-                  <span class="exp-duration">Semester 6</span>
-                </div>
-              </div>
-              <p class="exp-desc">
-                Saat ini berada di semester 6 program sarjana Teknik Informatika, membangun fondasi kuat dalam ilmu komputer, rekayasa perangkat lunak, algoritma, dan desain sistem.
-              </p>
-              <div class="exp-tags">
-                <span class="tag">Ilmu Komputer</span>
-                <span class="tag">Rekayasa Perangkat Lunak</span>
-                <span class="tag">Algoritma</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
+      <!-- ═══════════════════════════════════════════
          SKILLS SECTION
     ══════════════════════════════════════════════ -->
-    <section class="skills section" id="skills">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-label">03 / Keahlian</span>
-          <h2 class="section-title">Teknologi yang Saya<br /><span class="accent">Gunakan Setiap Hari</span></h2>
+      <section class="skills section" id="skills">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-label">03 / Keahlian</span>
+            <h2 class="section-title">
+              Teknologi yang Saya<br /><span class="accent"
+                >Gunakan</span
+              >
+            </h2>
+          </div>
+
+          <div class="skills-grid">
+            <!-- Skill Card: Linux & SysAdmin -->
+            <div class="skill-card reveal">
+              <div class="skill-card-inner">
+                <div class="skill-icon">🐧</div>
+                <h3 class="skill-name">Linux & SysAdmin</h3>
+                <p class="skill-desc">
+                  Administrasi sistem Linux meliputi manajemen user, konfigurasi
+                  layanan, monitoring sistem, dan pengelolaan server di
+                  lingkungan produksi.
+                </p>
+                <div class="skill-bar">
+                  <div
+                    class="skill-fill"
+                    data-level="70"
+                    style="--level: 70%"
+                  ></div>
+                </div>
+                <span class="skill-level">Menengah</span>
+              </div>
+            </div>
+
+            <!-- Skill Card: Cisco -->
+            <div class="skill-card reveal">
+              <div class="skill-card-inner">
+                <div class="skill-icon">🔵</div>
+                <h3 class="skill-name">Cisco</h3>
+                <p class="skill-desc">
+                  Konfigurasi router dan switch Cisco, pemahaman protokol
+                  routing (OSPF, RIP), VLAN, dan troubleshooting jaringan
+                  enterprise.
+                </p>
+                <div class="skill-bar">
+                  <div
+                    class="skill-fill"
+                    data-level="70"
+                    style="--level: 70%"
+                  ></div>
+                </div>
+                <span class="skill-level">Menengah</span>
+              </div>
+            </div>
+
+            <!-- Skill Card: Mikrotik -->
+            <div class="skill-card reveal">
+              <div class="skill-card-inner">
+                <div class="skill-icon">📡</div>
+                <h3 class="skill-name">Mikrotik</h3>
+                <p class="skill-desc">
+                  Konfigurasi RouterOS, manajemen bandwidth, firewall rules,
+                  hotspot, dan pengelolaan jaringan ISP skala menengah.
+                </p>
+                <div class="skill-bar">
+                  <div
+                    class="skill-fill"
+                    data-level="70"
+                    style="--level: 70%"
+                  ></div>
+                </div>
+                <span class="skill-level">Menengah</span>
+              </div>
+            </div>
+
+            <!-- Skill Card: Node.js & Express.js -->
+            <div class="skill-card reveal">
+              <div class="skill-card-inner">
+                <div class="skill-icon">⚡</div>
+                <h3 class="skill-name">Node.js & Express.js</h3>
+                <p class="skill-desc">
+                  Membangun REST API dan aplikasi sisi server yang cepat dengan
+                  arsitektur middleware yang bersih, termasuk integrasi MySQL &
+                  PostgreSQL.
+                </p>
+                <div class="skill-bar">
+                  <div
+                    class="skill-fill"
+                    data-level="70"
+                    style="--level: 70%"
+                  ></div>
+                </div>
+                <span class="skill-level">Menengah</span>
+              </div>
+            </div>
+
+            <!-- Skill Card: Git & Web Fundamentals -->
+            <div class="skill-card reveal">
+              <div class="skill-card-inner">
+                <div class="skill-icon">🌿</div>
+                <h3 class="skill-name">Git & Web Fundamentals</h3>
+                <p class="skill-desc">
+                  Version control dengan Git/GitHub, serta fondasi web solid —
+                  HTML, CSS, dan JavaScript untuk pengembangan antarmuka
+                  sederhana.
+                </p>
+                <div class="skill-bar">
+                  <div
+                    class="skill-fill"
+                    data-level="55"
+                    style="--level: 55%"
+                  ></div>
+                </div>
+                <span class="skill-level">Menengah-Dasar</span>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="skills-grid">
-
-          <!-- Skill Card: Linux & SysAdmin -->
-          <div class="skill-card reveal">
-            <div class="skill-card-inner">
-              <div class="skill-icon">🐧</div>
-              <h3 class="skill-name">Linux & SysAdmin</h3>
-              <p class="skill-desc">Administrasi sistem Linux meliputi manajemen user, konfigurasi layanan, monitoring sistem, dan pengelolaan server di lingkungan produksi.</p>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="80" style="--level: 80%"></div>
-              </div>
-              <span class="skill-level">Mahir</span>
-            </div>
-          </div>
-
-          <!-- Skill Card: Cisco -->
-          <div class="skill-card reveal">
-            <div class="skill-card-inner">
-              <div class="skill-icon">🔵</div>
-              <h3 class="skill-name">Cisco</h3>
-              <p class="skill-desc">Konfigurasi router dan switch Cisco, pemahaman protokol routing (OSPF, RIP), VLAN, dan troubleshooting jaringan enterprise.</p>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="75" style="--level: 75%"></div>
-              </div>
-              <span class="skill-level">Menengah</span>
-            </div>
-          </div>
-
-          <!-- Skill Card: Mikrotik -->
-          <div class="skill-card reveal">
-            <div class="skill-card-inner">
-              <div class="skill-icon">📡</div>
-              <h3 class="skill-name">Mikrotik</h3>
-              <p class="skill-desc">Konfigurasi RouterOS, manajemen bandwidth, firewall rules, hotspot, dan pengelolaan jaringan ISP skala menengah.</p>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="78" style="--level: 78%"></div>
-              </div>
-              <span class="skill-level">Menengah</span>
-            </div>
-          </div>
-
-          <!-- Skill Card: GPON / Fiber Optik -->
-          <div class="skill-card reveal">
-            <div class="skill-card-inner">
-              <div class="skill-icon">💡</div>
-              <h3 class="skill-name">GPON & Fiber Optik</h3>
-              <p class="skill-desc">Pengecekan dan pemeliharaan perangkat GPON di lapangan, pembacaan sinyal optik, serta troubleshooting koneksi fiber di instalasi skala hotel.</p>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="72" style="--level: 72%"></div>
-              </div>
-              <span class="skill-level">Menengah</span>
-            </div>
-          </div>
-
-          <!-- Skill Card: Node.js & Express.js -->
-          <div class="skill-card reveal">
-            <div class="skill-card-inner">
-              <div class="skill-icon">⚡</div>
-              <h3 class="skill-name">Node.js & Express.js</h3>
-              <p class="skill-desc">Membangun REST API dan aplikasi sisi server yang cepat dengan arsitektur middleware yang bersih, termasuk integrasi MySQL & PostgreSQL.</p>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="85" style="--level: 85%"></div>
-              </div>
-              <span class="skill-level">Mahir</span>
-            </div>
-          </div>
-
-          <!-- Skill Card: Git & Web Fundamentals -->
-          <div class="skill-card reveal">
-            <div class="skill-card-inner">
-              <div class="skill-icon">🌿</div>
-              <h3 class="skill-name">Git & Web Fundamentals</h3>
-              <p class="skill-desc">Version control dengan Git/GitHub, serta fondasi web solid — HTML, CSS, dan JavaScript untuk pengembangan antarmuka sederhana.</p>
-              <div class="skill-bar">
-                <div class="skill-fill" data-level="83" style="--level: 83%"></div>
-              </div>
-              <span class="skill-level">Mahir</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
+      <!-- ═══════════════════════════════════════════
          CONTACT SECTION
     ══════════════════════════════════════════════ -->
-    <section class="contact section" id="contact">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-label">04 / Kontak</span>
-          <h2 class="section-title">Ayo Bangun<br /><span class="accent">Sesuatu</span></h2>
-        </div>
+      <section class="contact section" id="contact">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-label">04 / Kontak</span>
+            <h2 class="section-title">
+              Ayo Bangun<br /><span class="accent">Sesuatu</span>
+            </h2>
+          </div>
 
-        <div class="contact-grid">
-          <!-- Left: info -->
-          <div class="contact-info reveal">
-            <p class="contact-desc">
-              Entah itu tantangan backend, proyek baru, atau sekadar ngobrol soal teknologi — kotak masuk saya selalu terbuka.
-            </p>
+          <div class="contact-grid">
+            <!-- Left: info -->
+            <div class="contact-info reveal">
+              <p class="contact-desc">
+                Entah itu tantangan backend, proyek baru, atau sekadar ngobrol
+                soal teknologi — kotak masuk saya selalu terbuka.
+              </p>
 
-            <div class="contact-links">
-              <!-- Gmail dengan SVG ikon envelope -->
-              <a href="/cdn-cgi/l/email-protection#cfa2aebca2babca3a6a2fdfffefafefdfcfe8fa8a2aea6a3e1aca0a2" class="contact-link-item">
-                <span class="contact-link-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="4" width="20" height="16" rx="2"/>
-                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                  </svg>
-                </span>
-                <span><span class="__cf_email__" data-cfemail="610c00120c14120d080c535150545053525021060c00080d4f020e0c">[email&#160;protected]</span></span>
-              </a>
+              <div class="contact-links">
+                <!-- Gmail dengan SVG ikon envelope -->
+                <a
+                  href="mailto:masmuslim20151231@gmail.com"
+                  class="contact-link-item"
+                >
+                  <span class="contact-link-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="2" y="4" width="20" height="16" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                  </span>
+                  <span>masmuslim20151231@gmail.com</span>
+                </a>
 
-              <!-- Instagram dengan SVG ikon kamera rounded square -->
-              <a href="https://www.instagram.com/banawimiaw_/" target="_blank" rel="noopener" class="contact-link-item">
-                <span class="contact-link-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                    <circle cx="12" cy="12" r="4"/>
-                    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
-                  </svg>
-                </span>
-                <span>instagram.com/banawimiaw_</span>
-              </a>
+                <!-- Instagram dengan SVG ikon kamera rounded square -->
+                <a
+                  href="https://www.instagram.com/banawimiaw_/"
+                  target="_blank"
+                  rel="noopener"
+                  class="contact-link-item"
+                >
+                  <span class="contact-link-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <circle cx="12" cy="12" r="4" />
+                      <circle
+                        cx="17.5"
+                        cy="6.5"
+                        r="0.5"
+                        fill="currentColor"
+                        stroke="none"
+                      />
+                    </svg>
+                  </span>
+                  <span>instagram.com/banawimiaw_</span>
+                </a>
+
+                <!-- GitHub -->
+                <a
+                  href="https://github.com/banawi23005"
+                  target="_blank"
+                  rel="noopener"
+                  class="contact-link-item"
+                >
+                  <span class="contact-link-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77 5.44 5.44 0 0 0 3.5 8.5c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                      />
+                    </svg>
+                  </span>
+                  <span>github.com/banawi23005</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-  </main>
-
-  <!-- ═══════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════
        FOOTER
   ══════════════════════════════════════════════ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <p class="footer-copy">
-          © <span id="footerYear"></span> Banawi Muslim Wibowo
-          <span class="footer-sep">·</span>
-          Dirancang & dibangun dengan ♥
-        </p>
-        <p class="footer-tagline">
-          <span class="code-com
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <p class="footer-copy">
+            © <span id="footerYear"></span> Banawi Muslim Wibowo
+            <span class="footer-sep">·</span>
+            Dirancang & dibangun dengan ♥
+          </p>
+          <p class="footer-tagline">
+            <span class="code-comment"
+              >// network + backend + infrastructure</span
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
