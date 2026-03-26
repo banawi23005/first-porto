@@ -212,10 +212,10 @@ function initTypingAnimation() {
   if (!el) return;
 
   const phrases = [
-    "Saya membangun pengalaman digital yang berarti",
-    "Saya merancang API yang skalabel",
-    "Saya membuat backend yang tidak pernah gagal",
-    "Saya mengubah data menjadi sistem yang andal",
+    "Saya memahami jaringan dari kabel hingga konfigurasi",
+    "Saya menjaga infrastruktur tetap hidup 24/7",
+    "Saya terjun langsung ke lapangan dan ke terminal",
+    "Saya belajar dari router, switch, dan baris perintah",
   ];
 
   let phraseIndex = 0;
