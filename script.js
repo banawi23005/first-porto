@@ -9,7 +9,6 @@
    - Typing animation (hero tagline)
    - Animated stat counters
    - Skill bar fill animation
-   - Contact form validation
    - Footer year
 ═══════════════════════════════════════════════════════════ */
 
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypingAnimation();
   initStatCounters();
   initSkillBars();
-  initContactForm();
   initFooterYear();
 });
 
@@ -40,19 +38,15 @@ function initCursor() {
   let mouseX = 0, mouseY = 0;
   let ringX = 0, ringY = 0;
 
-  // Track mouse position
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 
-    // Dot follows instantly
     dot.style.left  = mouseX + 'px';
     dot.style.top   = mouseY + 'px';
   });
 
-  // Ring follows with lag (requestAnimationFrame)
   function animateRing() {
-    // Lerp (linear interpolation) for smooth lag
     ringX += (mouseX - ringX) * 0.15;
     ringY += (mouseY - ringY) * 0.15;
 
@@ -63,14 +57,12 @@ function initCursor() {
   }
   animateRing();
 
-  // Grow ring on interactive elements
-  const hoverTargets = document.querySelectorAll('a, button, .skill-card, .project-card, input, textarea');
+  const hoverTargets = document.querySelectorAll('a, button, .skill-card, input, textarea');
   hoverTargets.forEach(el => {
     el.addEventListener('mouseenter', () => ring.classList.add('hovered'));
     el.addEventListener('mouseleave', () => ring.classList.remove('hovered'));
   });
 
-  // Hide cursor when leaving window
   document.addEventListener('mouseleave', () => {
     dot.style.opacity  = '0';
     ring.style.opacity = '0';
@@ -90,7 +82,6 @@ function initNavbar() {
 
   if (!navbar) return;
 
-  // Add shadow when scrolled
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
       navbar.classList.add('scrolled');
@@ -100,22 +91,19 @@ function initNavbar() {
     updateActiveLink();
   }, { passive: true });
 
-  // Smooth scroll on nav link click
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
       if (target) {
-        const offset = 80; // navbar height offset
+        const offset = 80;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
       }
-      // Close mobile menu if open
       closeMobileMenu();
     });
   });
 
-  // Update active nav link based on scroll position
   function updateActiveLink() {
     const sections = document.querySelectorAll('section[id]');
     let current = '';
@@ -144,7 +132,6 @@ function initThemeToggle() {
   const html = document.documentElement;
   if (!btn) return;
 
-  // Load saved preference
   const saved = localStorage.getItem('theme') || 'dark';
   html.setAttribute('data-theme', saved);
 
@@ -175,7 +162,6 @@ function initHamburger() {
     }
   });
 
-  // Close on outside click
   document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
       closeMobileMenu();
@@ -203,12 +189,11 @@ function initScrollReveal() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // Trigger skill bars & counters when visible
         if (entry.target.classList.contains('skill-card')) {
           const fill = entry.target.querySelector('.skill-fill');
           if (fill) animateSkillBar(fill);
         }
-        observer.unobserve(entry.target); // only animate once
+        observer.unobserve(entry.target);
       }
     });
   }, {
@@ -220,18 +205,17 @@ function initScrollReveal() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   6. TYPING ANIMATION — hero tagline
+   6. TYPING ANIMATION — hero tagline (Bahasa Indonesia)
 ═══════════════════════════════════════════════════════════ */
 function initTypingAnimation() {
   const el = document.getElementById('typedText');
   if (!el) return;
 
-  // You can add more phrases here
   const phrases = [
-    "I build digital experiences that matter",
-    "I design APIs that scale",
-    "I craft backends that never break",
-    "I turn data into reliable systems",
+    "Saya membangun pengalaman digital yang berarti",
+    "Saya merancang API yang skalabel",
+    "Saya membuat backend yang tidak pernah gagal",
+    "Saya mengubah data menjadi sistem yang andal",
   ];
 
   let phraseIndex = 0;
@@ -239,10 +223,10 @@ function initTypingAnimation() {
   let isDeleting  = false;
   let isPaused    = false;
 
-  const TYPE_SPEED   = 60;   // ms per character typing
-  const DELETE_SPEED = 35;   // ms per character deleting
-  const PAUSE_END    = 2200; // pause at end of phrase
-  const PAUSE_START  = 400;  // pause before re-typing
+  const TYPE_SPEED   = 60;
+  const DELETE_SPEED = 35;
+  const PAUSE_END    = 2200;
+  const PAUSE_START  = 400;
 
   function type() {
     const current = phrases[phraseIndex];
@@ -257,7 +241,6 @@ function initTypingAnimation() {
 
     let delay = isDeleting ? DELETE_SPEED : TYPE_SPEED;
 
-    // Finished typing
     if (!isDeleting && charIndex === current.length) {
       if (isPaused) return;
       isPaused = true;
@@ -269,7 +252,6 @@ function initTypingAnimation() {
       return;
     }
 
-    // Finished deleting
     if (isDeleting && charIndex === 0) {
       isDeleting = false;
       phraseIndex = (phraseIndex + 1) % phrases.length;
@@ -279,7 +261,6 @@ function initTypingAnimation() {
     setTimeout(type, delay);
   }
 
-  // Start with a small delay
   setTimeout(type, 800);
 }
 
@@ -310,7 +291,6 @@ function animateCounter(el) {
   function update(now) {
     const elapsed  = now - start;
     const progress = Math.min(elapsed / duration, 1);
-    // easeOutExpo
     const eased    = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
     el.textContent = Math.floor(eased * target);
     if (progress < 1) requestAnimationFrame(update);
@@ -324,8 +304,6 @@ function animateCounter(el) {
    8. SKILL BAR FILL ANIMATION
 ═══════════════════════════════════════════════════════════ */
 function initSkillBars() {
-  // Bars are triggered by scroll reveal observer above
-  // This fallback handles any already-visible cards on load
   setTimeout(() => {
     document.querySelectorAll('.skill-card.visible .skill-fill').forEach(fill => {
       animateSkillBar(fill);
@@ -335,110 +313,13 @@ function initSkillBars() {
 
 function animateSkillBar(fill) {
   const level = fill.dataset.level || '80';
-  // Small delay for visual delight
   setTimeout(() => {
     fill.style.width = level + '%';
   }, 200);
 }
 
 /* ═══════════════════════════════════════════════════════════
-   9. CONTACT FORM VALIDATION
-═══════════════════════════════════════════════════════════ */
-function initContactForm() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const isValid = validateForm();
-    if (!isValid) return;
-
-    // Simulate sending (replace with real API call)
-    const btn      = form.querySelector('.btn');
-    const btnText  = btn.querySelector('.btn-text');
-    const success  = document.getElementById('formSuccess');
-
-    btnText.textContent = 'Sending...';
-    btn.disabled = true;
-
-    setTimeout(() => {
-      btnText.textContent = 'Send Message';
-      btn.disabled = false;
-      form.reset();
-      if (success) {
-        success.classList.add('show');
-        setTimeout(() => success.classList.remove('show'), 5000);
-      }
-    }, 1500);
-  });
-
-  // Live validation on blur
-  ['name', 'email', 'message'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.addEventListener('blur', () => validateField(el));
-      el.addEventListener('input', () => clearError(el));
-    }
-  });
-}
-
-function validateForm() {
-  const name    = document.getElementById('name');
-  const email   = document.getElementById('email');
-  const message = document.getElementById('message');
-  let valid = true;
-
-  if (!validateField(name))    valid = false;
-  if (!validateField(email))   valid = false;
-  if (!validateField(message)) valid = false;
-
-  return valid;
-}
-
-function validateField(el) {
-  const id    = el.id;
-  const value = el.value.trim();
-  const error = document.getElementById(id + 'Error');
-
-  // Clear first
-  el.classList.remove('invalid');
-  if (error) error.textContent = '';
-
-  if (!value) {
-    setError(el, error, 'This field is required.');
-    return false;
-  }
-
-  if (id === 'email') {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(value)) {
-      setError(el, error, 'Please enter a valid email address.');
-      return false;
-    }
-  }
-
-  if (id === 'message' && value.length < 10) {
-    setError(el, error, 'Message must be at least 10 characters.');
-    return false;
-  }
-
-  return true;
-}
-
-function setError(el, errorEl, message) {
-  el.classList.add('invalid');
-  if (errorEl) errorEl.textContent = message;
-}
-
-function clearError(el) {
-  el.classList.remove('invalid');
-  const error = document.getElementById(el.id + 'Error');
-  if (error) error.textContent = '';
-}
-
-/* ═══════════════════════════════════════════════════════════
-   10. FOOTER YEAR
+   9. FOOTER YEAR
 ═══════════════════════════════════════════════════════════ */
 function initFooterYear() {
   const el = document.getElementById('footerYear');
